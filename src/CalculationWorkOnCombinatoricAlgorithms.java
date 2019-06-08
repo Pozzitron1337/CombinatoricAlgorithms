@@ -312,6 +312,20 @@ public class CalculationWorkOnCombinatoricAlgorithms {
         return result.toString();
     }
 
+    public String generateSubsetByLexograpicNumber(int m){
+        int M=m;
+        String M_bin=Integer.toBinaryString(M);
+        ArrayList<String> result=new ArrayList<String>();
+        Iterator it=set.iterator();
+        for(int j=0;j<M_bin.length();j++){
+            if(M_bin.charAt(j)=='1')
+                result.add(Integer.toString(j+1));
+            else
+                it.next();
+        }
+        return result.toString();
+    }
+
     public String getLexographicNumber(HashSet<String> subset){
         String result="0b";
         Iterator subset_iterator=subset.iterator();
@@ -358,7 +372,7 @@ public class CalculationWorkOnCombinatoricAlgorithms {
         String bin_t=Integer.toBinaryString(t);
         //System.out.println(bin_t);
         String result="";
-        result+=bin_t.charAt(bin_t.length()-1);
+        result+=bin_t.charAt(0);
         for(int i=1;i<bin_t.length();i++){
             int left_operand=Character.getNumericValue(bin_t.charAt(i-1));
             int right_operand=Character.getNumericValue(bin_t.charAt(i));

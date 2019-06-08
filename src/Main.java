@@ -62,7 +62,13 @@ public class Main {
         System.out.println("Subset by lexographic number: "+subset);
         System.out.println();
         System.out.println("B: "+B);
-        System.out.println("Lexographic number of B: "+algorithms.getLexographicNumber(B));
+        String lexographicNumberOfB=algorithms.getLexographicNumber(B);
+
+        System.out.println("Lexographic number of B: "+lexographicNumberOfB);
+        int t=Integer.parseInt(lexographicNumberOfB.replaceAll("0b",""),2);
+        System.out.println("Lexographic number in decimal system: "+t);
+        String subsetB=algorithms.generateSubsetByLexograpicNumber(t);
+        System.out.println("B:"+subsetB);
         System.out.println();
         System.out.println("-----------------------------------------");
         System.out.println(T+" code Gray: "+algorithms.generate8bitCodeGray());
@@ -74,7 +80,7 @@ public class Main {
         System.out.println((T+3)+" code Gray: "+algorithms.generate8bitCodeGray(T+3));
         System.out.println();
         System.out.println("-----------------------------------------");
-        String subset1=algorithms.getNextLexographicPermutation(subset);
+        String subset1=algorithms.getNextLexographicPermutation(subsetB);
         System.out.println("Next permutation of subset: "+subset1);
         System.out.println();
         String subset2=algorithms.getNextLexographicPermutation(subset1);
